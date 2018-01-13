@@ -2,7 +2,7 @@ NAME = wolf3d
 CFLAG = -Wall -Werror -Wextra
 ##CC = gcc $(CFLAG)
 CC = gcc
-SRC = main.c wolf_window.c
+SRC = main.c wolf_window.c wolf_maps.c
 PSRC = $(addprefix src/,$(SRC))
 OBJ = $(SRC:.c=.o)
 POBJ = $(addprefix obj/,$(OBJ))

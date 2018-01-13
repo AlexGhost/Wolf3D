@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/13 17:17:42 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/13 18:18:27 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
-# include <math.h>
-# include <pthread.h>
+# include "fcntl.h"
 
 # define WIN_WIDTH 1400
 # define WIN_HEIGHT 800
@@ -53,6 +52,13 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
-void				wolf_create_window(void);
+typedef struct		s_wolf
+{
+	t_mlx			smlx;
+	char			tiles[1000][1000];
+}					t_wolf;
+
+void				wolf_create_window(t_wolf *wolf_game);
+int					wolf_loadmap(char *mapfile, char tiles[1000][1000]);
 
 #endif
