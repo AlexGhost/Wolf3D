@@ -13,7 +13,7 @@ $(NAME) : submake $(POBJ)
 	@$(CC) $(POBJ) -Llibft -lft -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	@printf "\r\033[K"
 	@echo "\033[32m/------------------------------------\ \\033[0m"
-	@echo "\033[32m|----------- $(NAME) crée -----------| \\033[0m"
+	@echo "\033[32m|----------- $(NAME) crée ------------| \\033[0m"
 	@echo "\033[32m\------------------------------------/ \\033[0m"
 
 submake :
