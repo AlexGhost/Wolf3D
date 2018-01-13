@@ -20,7 +20,7 @@ static int		keyevent(int keycode)
 static void		window_init(t_mlx *smlx, t_img *i)
 {
 	smlx->mlx = mlx_init();
-	smlx->win = mlx_new_window(smlx->mlx, WIN_WIDTH, WIN_HEIGHT, "wolf3D");
+	smlx->win = mlx_new_window(smlx->mlx, WIN_WIDTH, WIN_HEIGHT, "wolf3d");
 	smlx->img = mlx_new_image(smlx->mlx, WIN_WIDTH, WIN_HEIGHT);
 	smlx->imgstr = (int*)mlx_get_data_addr(smlx->img, &i->bpp, &i->s_l, \
 			&i->endian);
