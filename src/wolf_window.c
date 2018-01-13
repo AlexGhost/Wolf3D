@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:32 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/13 17:27:41 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/13 19:39:28 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void			wolf_create_window(t_wolf *wolf_game)
 	window_init(&wolf_game->smlx, &i);
 	mlx_key_hook(wolf_game->smlx.win, keyevent, 0);
 	mlx_hook(wolf_game->smlx.win, 17, 0, exitwolf, 0);
+	mlx_loop_hook(wolf_game->smlx.mlx, wolf_draw_minimap, (void*)wolf_game);
 	mlx_loop(wolf_game->smlx.mlx);
 }
