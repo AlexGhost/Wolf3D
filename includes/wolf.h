@@ -52,14 +52,22 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
+typedef struct		s_player
+{
+	double			posx;
+	double			posy;
+	double			rot;
+}					t_player;
+
 typedef struct		s_wolf
 {
 	t_mlx			smlx;
-	char			tiles[50][50];
+	t_player		player;
+	char			tiles[30][30];
 }					t_wolf;
 
 void				wolf_create_window(t_wolf *wolf_game);
-int					wolf_loadmap(char *mapfile, char tiles[50][50]);
+int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 
 #endif

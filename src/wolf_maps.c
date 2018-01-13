@@ -12,16 +12,16 @@
 
 #include "../includes/wolf.h"
 
-static void		init_tiles(char tiles[50][50])
+static void		init_tiles(char tiles[30][30])
 {
 	int i;
 	int j;
 
 	j = -1;
-	while (++j < 50)
+	while (++j < 30)
 	{
 		i = -1;
-		while (++i < 50)
+		while (++i < 30)
 		{
 			tiles[j][i] = '0';
 		}
@@ -46,7 +46,7 @@ static int		verify_map(int fd)
 	count_j = 0;
 	while ((i = get_next_line(fd, &line)) == 1)
 	{
-		if (ft_strlen(line) > 50)
+		if (ft_strlen(line) > 30)
 			return (0);
 		if (ft_strchr(line, 'J'))
 			count_j++;
@@ -54,12 +54,12 @@ static int		verify_map(int fd)
 		count++;
 	}
 	ft_strdel(&line);
-	if (count > 50 || count_j == 0)
+	if (count > 30 || count_j == 0)
 		return (0);
 	return (1);
 }
 
-static void		fill_tiles(int fd, char tiles[50][50])
+static void		fill_tiles(int fd, t_wolf *wolf_game)
 {
 	int		i;
 	int		j;
@@ -73,7 +73,13 @@ static void		fill_tiles(int fd, char tiles[50][50])
 		j = -1;
 		while (++j < ft_strlen(line))
 		{
-			tiles[count][j] = line[j];
+			if (line[j] == 'J')
+			{
+				wolf_game->player.posx = j;
+				wolf_game->player.posy = count;
+			}
+			else
+				wolf_game->tiles[count][j] = line[j];
 		}
 		ft_strdel(&line);
 		count++;
@@ -81,7 +87,7 @@ static void		fill_tiles(int fd, char tiles[50][50])
 	ft_strdel(&line);
 }
 
-int				wolf_loadmap(char *mapfile, char tiles[50][50])
+int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 {
 	int fd;
 
@@ -90,10 +96,10 @@ int				wolf_loadmap(char *mapfile, char tiles[50][50])
 	ft_putstr(" map...\n");
 	if ((fd = open(mapfile, O_RDONLY)) > 0)
 	{
-		init_tiles(tiles);
+		init_tiles(wolf_game->tiles);
 		if (verify_map(fd) == 0)
 			return (0);
-		fill_tiles(open(mapfile, O_RDONLY), tiles);
+		fill_tiles(open(mapfile, O_RDONLY), wolf_game);
 	}
 	else
 		return (0);

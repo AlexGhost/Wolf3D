@@ -18,11 +18,11 @@ static void		draw_cube(int x, int y, int color, t_wolf *wolf_game)
 	int		j;
 
 	j = -1;
-	while (++j < 18)
+	while (++j < 10)
 	{
 		i = -1;
-		while (++i < 18)
-			wolf_game->smlx.imgstr[(x * 18 + j) + ((y * 18 + i) * WIN_WIDTH)] \
+		while (++i < 10)
+			wolf_game->smlx.imgstr[(x * 10 + j) + ((y * 10 + i) * WIN_WIDTH)] \
 				= color;
 	}
 }
@@ -33,16 +33,20 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	int j;
 
 	j = -1;
-	while (++j < 50)
+	while (++j < 30)
 	{
 		i = -1;
-		while (++i < 50)
+		while (++i < 30)
 		{
-			if (wolf_game->tiles[j][i] == '0')
-				draw_cube(i, j, 0x00FFFFFF, wolf_game);
+			if (wolf_game->tiles[j][i] == 'M')
+				draw_cube(i, j, 0x00555555, wolf_game);
+			else
+				draw_cube(i, j, 0x00BBBBBB, wolf_game);
 		}
 	}
-	draw_cube(1, 1, 0x00FF0000, wolf_game);
+	draw_cube(wolf_game->player.posx, wolf_game->player.posy, 0x00FF0000, wolf_game);
+	wolf_game->smlx.imgstr[(int)wolf_game->player.posx + \
+		((int)wolf_game->player.posy * WIN_WIDTH)] = 0x00FF0000;
 	mlx_put_image_to_window(wolf_game->smlx.mlx, \
 			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
 return (0);
