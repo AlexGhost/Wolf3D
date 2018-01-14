@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 17:50:23 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 18:07:23 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "wolf_mlx.h"
 # include "wolf_button.h"
 
-# define PLAYER_SPEED 0.3
+# define PLAYER_SPEED 0.1
 
 typedef enum		e_tiles_type
 {
