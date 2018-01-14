@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 16:34:48 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 17:30:33 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		i = -1;
 		while (++i < 30)
 		{
-			if (wolf_game->tiles[j][i] == 'M')
+			if (wolf_game->tiles[j][i].type == TILE_WALL)
 				draw_cube(i, j, 0x00555555, wolf_game);
 			else
 				draw_cube(i, j, 0x00BBBBBB, wolf_game);

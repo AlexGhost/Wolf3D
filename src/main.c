@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/13 18:53:13 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 17:31:19 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,12 @@ static void		write_usage(void)
 int				main(int ac, char **av)
 {
 	t_wolf		wolf_game;
-	int			i;
-	int			j;
 
 	if (ac != 2)
 		write_usage();
 	if (wolf_loadmap(av[1], &wolf_game) == 1)
 	{
 		ft_putendl("valid map!");
-		j = -1;
-		while (++j < 30)
-		{
-			i = -1;
-			while (++i < 30)
-			{
-				ft_putchar(wolf_game.tiles[j][i]);
-			}
-			ft_putchar('\n');
-		}
 		wolf_create_window(&wolf_game);
 	}
 	else

@@ -6,13 +6,13 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 16:47:44 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 17:39:51 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static void		init_tiles(char tiles[30][30])
+static void		init_tiles(t_tile tiles[30][30])
 {
 	int i;
 	int j;
@@ -23,7 +23,7 @@ static void		init_tiles(char tiles[30][30])
 		i = -1;
 		while (++i < 30)
 		{
-			tiles[j][i] = '0';
+			tiles[j][i].type = TILE_FLOOR;
 		}
 	}
 }
@@ -59,6 +59,21 @@ static int		verify_map(int fd)
 	return (1);
 }
 
+static void		fill_tiles_at(int x, int y, char c, t_wolf *wolf_game)
+{
+	if (c == 'J')
+	{
+		wolf_game->player.posx = x;
+		wolf_game->player.posy = y;
+	}
+	else if (c == 'M')
+		wolf_game->tiles[y][x].type = TILE_WALL;
+	else
+		wolf_game->tiles[y][x].type = TILE_FLOOR;
+	wolf_game->tiles[y][x].posx = x;
+	wolf_game->tiles[y][x].posy = y;
+}
+
 static void		fill_tiles(int fd, t_wolf *wolf_game)
 {
 	int		i;
@@ -72,15 +87,7 @@ static void		fill_tiles(int fd, t_wolf *wolf_game)
 	{
 		j = -1;
 		while (++j < ft_strlen(line))
-		{
-			if (line[j] == 'J')
-			{
-				wolf_game->player.posx = j;
-				wolf_game->player.posy = count;
-			}
-			else
-				wolf_game->tiles[count][j] = line[j];
-		}
+			fill_tiles_at(j, count, line[j], wolf_game);
 		ft_strdel(&line);
 		count++;
 	}
