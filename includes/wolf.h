@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 18:07:23 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 18:39:11 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ typedef enum		e_tiles_type
 	TILE_FLOOR = 1,
 	TILE_WALL = 2
 }					t_tiles_type;
+
+typedef enum		e_directions
+{
+	LEFT = 1,
+	UP = 2,
+	RIGHT = 3,
+	DOWN = 4
+}					t_directions;
 
 typedef struct		s_player
 {
