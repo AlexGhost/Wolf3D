@@ -6,11 +6,20 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 16:27:37 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 16:48:09 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
+
+void			wolf_player_init(t_wolf *wolf_game)
+{
+	wolf_game->player.posx = 1.0;
+	wolf_game->player.posy = 1.0;
+	wolf_game->player.rot = 90.0;
+	wolf_game->player.movex = 0;
+	wolf_game->player.movey = 0;
+}
 
 void			wolf_player_loop(t_wolf *wolf_game)
 {

@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 16:24:34 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 16:44:33 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct		s_wolf
 
 void				wolf_create_window(t_wolf *wolf_game);
 void				wolf_player_loop(t_wolf *wolf_game);
+void				wolf_player_init(t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 int					wolf_exit(void);
