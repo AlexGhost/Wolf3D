@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 17:39:51 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 17:48:02 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,15 @@ static void		fill_tiles_at(int x, int y, char c, t_wolf *wolf_game)
 		wolf_game->player.posy = y;
 	}
 	else if (c == 'M')
+	{
 		wolf_game->tiles[y][x].type = TILE_WALL;
+		wolf_game->tiles[y][x].block_player = 1;
+	}
 	else
+	{
 		wolf_game->tiles[y][x].type = TILE_FLOOR;
+		wolf_game->tiles[y][x].block_player = 0;
+	}
 	wolf_game->tiles[y][x].posx = x;
 	wolf_game->tiles[y][x].posy = y;
 }

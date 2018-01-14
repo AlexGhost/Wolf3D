@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 17:30:07 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 17:50:23 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
 # include "fcntl.h"
+# include "wolf_mlx.h"
 # include "wolf_button.h"
 
-# define WIN_WIDTH 1400
-# define WIN_HEIGHT 800
 # define PLAYER_SPEED 0.3
 
 typedef enum		e_tiles_type
@@ -27,21 +26,6 @@ typedef enum		e_tiles_type
 	TILE_FLOOR = 1,
 	TILE_WALL = 2
 }					t_tiles_type;
-
-typedef struct		s_mlx
-{
-	void			*mlx;
-	void			*win;
-	void			*img;
-	int				*imgstr;
-}					t_mlx;
-
-typedef struct		s_img
-{
-	int				bpp;
-	int				s_l;
-	int				endian;
-}					t_img;
 
 typedef struct		s_player
 {
@@ -57,6 +41,7 @@ typedef struct		s_tile
 	int				type;
 	int				posx;
 	int				posy;
+	int				block_player;
 }					t_tile;
 
 typedef struct		s_wolf
