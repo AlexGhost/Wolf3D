@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 14:17:45 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 16:34:48 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	int i;
 	int j;
 
+	wolf_player_loop(wolf_game);
 	j = -1;
 	while (++j < 30)
 	{

@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 14:14:30 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 16:24:34 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct		s_player
 	double			posx;
 	double			posy;
 	double			rot;
+	int				movex;
+	int				movey;
 }					t_player;
 
 typedef struct		s_wolf
@@ -68,9 +70,11 @@ typedef struct		s_wolf
 }					t_wolf;
 
 void				wolf_create_window(t_wolf *wolf_game);
+void				wolf_player_loop(t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 int					wolf_exit(void);
-int					wolf_keyevent(int keycode, t_wolf *wolf_game);
+int					wolf_keypress_event(int keycode, t_wolf *wolf_game);
+int					wolf_keyrelease_event(int keycode, t_wolf *wolf_game);
 
 #endif
