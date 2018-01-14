@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 13:37:28 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 14:14:30 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 # define WIN_WIDTH 1400
 # define WIN_HEIGHT 800
+# define PLAYER_SPEED 0.3
 # define BUTTON_ESCAPE 53
 # define BUTTON_W 13
 # define BUTTON_D 2
