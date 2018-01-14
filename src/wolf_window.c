@@ -6,26 +6,16 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:32 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/13 19:39:28 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/14 13:43:27 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static int		exitwolf(void)
+int				wolf_exit(void)
 {
 	ft_putendl("wolf3d shutting down");
 	exit(0);
-	return (0);
-}
-
-static int		keyevent(int keycode)
-{
-	ft_putstr("Button pressed : ");
-	ft_putnbr(keycode);
-	ft_putchar('\n');
-	if (keycode == BUTTON_ESCAPE)
-		exitwolf();
 	return (0);
 }
 
@@ -43,8 +33,8 @@ void			wolf_create_window(t_wolf *wolf_game)
 	t_img		i;
 
 	window_init(&wolf_game->smlx, &i);
-	mlx_key_hook(wolf_game->smlx.win, keyevent, 0);
-	mlx_hook(wolf_game->smlx.win, 17, 0, exitwolf, 0);
+	mlx_hook(wolf_game->smlx.win, 17, 0, wolf_exit, 0);
+	mlx_hook(wolf_game->smlx.win, 2, 0, wolf_keyevent, (void*)wolf_game);
 	mlx_loop_hook(wolf_game->smlx.mlx, wolf_draw_minimap, (void*)wolf_game);
 	mlx_loop(wolf_game->smlx.mlx);
 }
