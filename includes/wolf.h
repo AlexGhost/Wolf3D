@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 18:39:11 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 13:57:50 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
+# include "math.h"
 # include "fcntl.h"
 # include "wolf_mlx.h"
 # include "wolf_button.h"
 
 # define PLAYER_SPEED 0.1
+# define PLAYER_TURN_RATE 1
 
 typedef enum		e_tiles_type
 {
@@ -39,9 +41,11 @@ typedef struct		s_player
 {
 	double			posx;
 	double			posy;
+	double			rotx;
+	double			roty;
 	double			rot;
-	int				movex;
-	int				movey;
+	int				is_moving;
+	int				is_rot;
 }					t_player;
 
 typedef struct		s_tile
