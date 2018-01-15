@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 14:37:51 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 15:11:55 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,19 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 4)
-			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 + \
-				(int)(WIN_WIDTH / 2.5)) + ((y * 10 + i + 3 \
-				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = 0x00FF0000;
+			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 \
+				+ (int)(WIN_WIDTH / 2.5)) + ((y * 10 + i + 3 \
+				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED;
+	}
+	j = -1;
+	while (++j < 4)
+	{
+		i = -1;
+		while (++i < 4)
+			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 \
+				+ (int)(wolf_game->player.rotx * 10) + (int)(WIN_WIDTH / 2.5)) \
+				+ ((y * 10 + i + 3 + (int)(wolf_game->player.roty * 10) \
+				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_GREEN;
 	}
 }
 
@@ -63,7 +73,6 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		}
 	}
 	draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
-	draw_player(wolf_game->player.posx + wolf_game->player.rotx, wolf_game->player.posy + wolf_game->player.roty, wolf_game);
 	mlx_put_image_to_window(wolf_game->smlx.mlx, \
 			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
 	printf("Player Degree: %f,\trotx: %f, roty: %f\n", wolf_game->player.rot, wolf_game->player.rotx, wolf_game->player.roty);
