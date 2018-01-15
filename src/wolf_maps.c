@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 18:12:45 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 18:59:32 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void		init_tiles(t_tile tiles[30][30])
 		while (++i < 30)
 		{
 			tiles[j][i].type = TILE_FLOOR;
+			tiles[j][i].block_player = 0;
 		}
 	}
 }
