@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 17:30:33 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 13:15:59 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 4)
-			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3) + ((y * 10 + i + 3) \
-						* WIN_WIDTH))] = 0x00FF0000;
+			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 + \
+				(int)(WIN_WIDTH / 2.5)) + ((y * 10 + i + 3 \
+				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = 0x00FF0000;
 	}
 }
 
@@ -37,8 +38,8 @@ static void		draw_cube(int x, int y, int color, t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 10)
-			wolf_game->smlx.imgstr[(x * 10 + j) + ((y * 10 + i) \
-					* WIN_WIDTH)] = color;
+			wolf_game->smlx.imgstr[(x * 10 + j + (int)(WIN_WIDTH / 2.5)) \
+				+ ((y * 10 + i + (int)(WIN_HEIGHT / 4)) * WIN_WIDTH)] = color;
 	}
 }
 
