@@ -6,12 +6,11 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 16:49:25 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 17:58:23 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
-#include <stdio.h>
 
 static void		draw_player(double x, double y, t_wolf *wolf_game)
 {
@@ -75,6 +74,5 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 	mlx_put_image_to_window(wolf_game->smlx.mlx, \
 			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
-	printf("Player Degree: %f,\trotx: %f, roty: %f\n", wolf_game->player.rot, wolf_game->player.rotx, wolf_game->player.roty);
 	return (0);
 }
