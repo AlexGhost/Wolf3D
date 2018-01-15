@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/14 17:31:19 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 18:08:06 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		write_usage(void)
 {
-	ft_putendl("usage: ./fractol <map>");
+	ft_putendl("usage: ./wolf3d <map>");
 	ft_putendl("\tRemplace <map> by a valid map file");
 	exit(0);
 }

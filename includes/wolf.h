@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 16:52:29 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 18:06:37 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@
 # define COLOR_RED 0x00FF0000
 # define COLOR_GREEN 0x0000FF00
 # define COLOR_BLUE 0x000000FF
+# define COLOR_DARKGREY 0x00555555
+# define COLOR_LIGHTGREY 0x00BBBBBB
+# define COLOR_LIGHTBLUE 0x006378FF
 
 typedef enum		e_tiles_type
 {
 	TILE_FLOOR = 1,
-	TILE_WALL = 2
+	TILE_WALL = 2,
+	TILE_SPACE = 3
 }					t_tiles_type;
 
 typedef enum		e_directions
