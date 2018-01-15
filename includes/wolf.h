@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 15:48:20 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 16:52:29 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "wolf_mlx.h"
 # include "wolf_button.h"
 
-# define PLAYER_SPEED 0.1
-# define PLAYER_TURN_RATE 2
+# define PLAYER_SPEED 1
+# define PLAYER_TURN_RATE 3
 # define COLOR_RED 0x00FF0000
 # define COLOR_GREEN 0x0000FF00
 # define COLOR_BLUE 0x000000FF

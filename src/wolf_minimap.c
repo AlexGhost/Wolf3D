@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 15:48:17 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 16:49:25 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 4)
-			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 \
-				+ (int)(WIN_WIDTH / 2.5)) + ((y * 10 + i + 3 \
-				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED;
+			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
+				+ (WIN_WIDTH / 2.5)) + (((int)y + i + 3 \
+				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED;
 	}
 	j = -1;
 	while (++j < 4)
 	{
 		i = -1;
 		while (++i < 4)
-			wolf_game->smlx.imgstr[(int)((x * 10 + j + 3 \
-				+ (int)(wolf_game->player.rotx * 10) + (int)(WIN_WIDTH / 2.5)) \
-				+ ((y * 10 + i + 3 + (int)(wolf_game->player.roty * 10) \
-				+ (int)(WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_GREEN;
+			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
+				+ (int)(wolf_game->player.rotx * 10) + (WIN_WIDTH / 2.5)) \
+				+ (((int)y + i + 3 + (int)(wolf_game->player.roty * 10) \
+				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_GREEN;
 	}
 }
 
