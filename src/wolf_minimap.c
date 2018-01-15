@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 18:04:39 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/15 18:20:00 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 		i = -1;
 		while (++i < 4)
 			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
-				+ (int)(wolf_game->player.rotx * 10) + (WIN_WIDTH / 2.5)) \
-				+ (((int)y + i + 3 + (int)(wolf_game->player.roty * 10) \
-				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_GREEN;
+				+ (int)(wolf_game->player.rotx * 4) + (WIN_WIDTH / 2.5)) \
+				+ (((int)y + i + 3 + (int)(wolf_game->player.roty * 4) \
+				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED - 0x00220000;
 	}
 }
 
