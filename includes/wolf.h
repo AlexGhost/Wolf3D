@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 18:06:37 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 23:28:19 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct		s_wolf
 {
 	t_mlx			smlx;
 	t_player		player;
-	t_tile			tiles[30][30];
+	t_tile			tiles[64][64];
 }					t_wolf;
 
 void				wolf_create_window(t_wolf *wolf_game);

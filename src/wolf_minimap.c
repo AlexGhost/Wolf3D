@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 18:20:00 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 23:38:40 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 		i = -1;
 		while (++i < 4)
 			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
-				+ (WIN_WIDTH / 2.5)) + (((int)y + i + 3 \
-				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED;
+				+ 364) + (((int)y + i + 3 \
+				+ 64) * WIN_WIDTH))] = COLOR_RED;
 	}
 	j = -1;
 	while (++j < 4)
@@ -32,9 +32,9 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 		i = -1;
 		while (++i < 4)
 			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
-				+ (int)(wolf_game->player.rotx * 4) + (WIN_WIDTH / 2.5)) \
+				+ (int)(wolf_game->player.rotx * 4) + 364) \
 				+ (((int)y + i + 3 + (int)(wolf_game->player.roty * 4) \
-				+ (WIN_HEIGHT / 4)) * WIN_WIDTH))] = COLOR_RED - 0x00220000;
+				+ 64) * WIN_WIDTH))] = COLOR_RED - 0x00220000;
 	}
 }
 
@@ -48,8 +48,8 @@ static void		draw_cube(int x, int y, int color, t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 10)
-			wolf_game->smlx.imgstr[(x * 10 + j + (int)(WIN_WIDTH / 2.5)) \
-				+ ((y * 10 + i + (int)(WIN_HEIGHT / 4)) * WIN_WIDTH)] = color;
+			wolf_game->smlx.imgstr[x * 10 + j + 364 \
+				+ ((y * 10 + i + 64) * WIN_WIDTH)] = color;
 	}
 }
 
@@ -60,10 +60,10 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 
 	wolf_player_loop(wolf_game);
 	j = -1;
-	while (++j < 30)
+	while (++j < 64)
 	{
 		i = -1;
-		while (++i < 30)
+		while (++i < 64)
 		{
 			if (wolf_game->tiles[j][i].type == TILE_WALL)
 				draw_cube(i, j, COLOR_DARKGREY, wolf_game);

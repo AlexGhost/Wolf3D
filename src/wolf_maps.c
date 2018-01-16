@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/16 23:29:17 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 23:40:34 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void		init_tiles(t_wolf *wolf_game)
 	int j;
 
 	j = -1;
-	while (++j < 30)
+	while (++j < 64)
 	{
 		i = -1;
-		while (++i < 30)
+		while (++i < 64)
 		{
 			wolf_game->tiles[j][i].type = TILE_FLOOR;
 			wolf_game->tiles[j][i].block_player = 0;
@@ -47,7 +47,7 @@ static int		verify_map(int fd)
 	count_j = 0;
 	while ((i = get_next_line(fd, &line)) == 1)
 	{
-		if (ft_strlen(line) > 30)
+		if (ft_strlen(line) > 64)
 			return (0);
 		if (ft_strchr(line, 'J'))
 			count_j++;
@@ -55,7 +55,7 @@ static int		verify_map(int fd)
 		count++;
 	}
 	ft_strdel(&line);
-	if (count > 30 || count_j == 0)
+	if (count > 64 || count_j == 0)
 		return (0);
 	return (1);
 }
