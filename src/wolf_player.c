@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 19:19:07 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 22:04:31 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,18 @@ static int		check_collisions(t_wolf *wolf_game)
 	return (1);
 }
 
-static void		move_player(int d, t_wolf *wolf_game)
+static void		move_player(t_wolf *wolf_game)
 {
-	if (d == 1)
-	{
-		wolf_game->player.posx += wolf_game->player.is_moving \
-			* PLAYER_SPEED * wolf_game->player.rotx;
-		wolf_game->player.posy += wolf_game->player.is_moving \
-			* PLAYER_SPEED * wolf_game->player.roty;
-	}
-	else
-	{
-		wolf_game->player.posx -= wolf_game->player.is_moving \
-			* PLAYER_SPEED * wolf_game->player.rotx;
-		wolf_game->player.posy -= wolf_game->player.is_moving \
-			* PLAYER_SPEED * wolf_game->player.roty;
-	}
+	wolf_game->player.posx += wolf_game->player.is_moving \
+		* PLAYER_SPEED * wolf_game->player.rotx;
+	wolf_game->player.posy += wolf_game->player.is_moving \
+		* PLAYER_SPEED * wolf_game->player.roty;
 }
 
 void			wolf_player_loop(t_wolf *wolf_game)
 {
-	if (wolf_game->player.is_moving != 0)
-	{
-		if (check_collisions(wolf_game) == 1)
-			move_player(1, wolf_game);
-		else
-			move_player(-1, wolf_game);
-	}
+	if (wolf_game->player.is_moving != 0 && check_collisions(wolf_game) == 1)
+		move_player(wolf_game);
 	if (wolf_game->player.is_rot != 0)
 		wolf_game->player.rot += wolf_game->player.is_rot * PLAYER_TURN_RATE;
 	if (wolf_game->player.posx < 0)
