@@ -6,13 +6,13 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/15 18:59:32 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 23:29:17 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-static void		init_tiles(t_tile tiles[30][30])
+static void		init_tiles(t_wolf *wolf_game)
 {
 	int i;
 	int j;
@@ -23,8 +23,8 @@ static void		init_tiles(t_tile tiles[30][30])
 		i = -1;
 		while (++i < 30)
 		{
-			tiles[j][i].type = TILE_FLOOR;
-			tiles[j][i].block_player = 0;
+			wolf_game->tiles[j][i].type = TILE_FLOOR;
+			wolf_game->tiles[j][i].block_player = 0;
 		}
 	}
 }
@@ -115,7 +115,7 @@ int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 	ft_putstr(" map...\n");
 	if ((fd = open(mapfile, O_RDONLY)) > 0)
 	{
-		init_tiles(wolf_game->tiles);
+		init_tiles(wolf_game);
 		if (verify_map(fd) == 0)
 			return (0);
 		wolf_player_init(wolf_game);
