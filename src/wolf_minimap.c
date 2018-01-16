@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/16 23:38:40 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 00:09:31 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,13 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		while (++i < 64)
 		{
 			if (wolf_game->tiles[j][i].type == TILE_WALL)
-				draw_cube(i, j, COLOR_DARKGREY, wolf_game);
+				draw_cube(i, j, COLOR_WALL, wolf_game);
 			else if (wolf_game->tiles[j][i].type == TILE_SPACE)
-				draw_cube(i, j, COLOR_LIGHTBLUE, wolf_game);
+				draw_cube(i, j, COLOR_SPACE, wolf_game);
+			else if (wolf_game->tiles[j][i].type == TILE_SAS)
+				draw_cube(i, j, COLOR_SAS, wolf_game);
 			else
-				draw_cube(i, j, COLOR_LIGHTGREY, wolf_game);
+				draw_cube(i, j, COLOR_FLOOR, wolf_game);
 		}
 	}
 	draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
