@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/16 22:04:31 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/16 23:58:13 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static int		check_collisions(t_wolf *wolf_game)
 	p_ny = wolf_game->player.posy \
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.roty * 10);
 	j = -1;
-	while (++j < 30)
+	while (++j < 64)
 	{
 		i = -1;
-		while (++i < 30)
+		while (++i < 64)
 		{
 			if (wolf_game->tiles[j][i].block_player == 1 \
 				&& p_nx > (10 * wolf_game->tiles[j][i].posx - 5) \
@@ -67,12 +67,12 @@ void			wolf_player_loop(t_wolf *wolf_game)
 		wolf_game->player.rot += wolf_game->player.is_rot * PLAYER_TURN_RATE;
 	if (wolf_game->player.posx < 0)
 		wolf_game->player.posx = 0;
-	else if (wolf_game->player.posx > 290)
-		wolf_game->player.posx = 290;
+	else if (wolf_game->player.posx > 630)
+		wolf_game->player.posx = 630;
 	if (wolf_game->player.posy < 0)
 		wolf_game->player.posy = 0;
-	else if (wolf_game->player.posy > 290)
-		wolf_game->player.posy = 290;
+	else if (wolf_game->player.posy > 630)
+		wolf_game->player.posy = 630;
 	if (wolf_game->player.rot > 360.0)
 		wolf_game->player.rot = 0.0 + PLAYER_TURN_RATE;
 	else if (wolf_game->player.rot < 0)
