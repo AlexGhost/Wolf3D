@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 13:30:46 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 01:43:50 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 01:56:02 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 int				wolf_keyrelease_event(int keycode, t_wolf *wolf_game)
 {
-	ft_putstr("Button : ");
-	ft_putnbrl(keycode);
+	//ft_putstr("Button : ");
+	//ft_putnbrl(keycode);
 	if (keycode == BUTTON_ESCAPE)
 		wolf_exit();
+	else if (keycode == BUTTON_M)
+		wolf_game->draw_minimap = -wolf_game->draw_minimap;
 	else if (keycode == BUTTON_D || keycode == BUTTON_A)
 		wolf_game->player.is_rot = 0;
 	else if (keycode == BUTTON_S || keycode == BUTTON_W)

@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 00:10:09 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 01:57:50 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct		s_player
 	double			rotx;
 	double			roty;
 	double			rot;
+	float			oxygen;
 	int				is_moving;
 	int				is_rot;
 }					t_player;
@@ -70,6 +71,7 @@ typedef struct		s_wolf
 	t_mlx			smlx;
 	t_player		player;
 	t_tile			tiles[64][64];
+	int				draw_minimap;
 }					t_wolf;
 
 void				wolf_create_window(t_wolf *wolf_game);
