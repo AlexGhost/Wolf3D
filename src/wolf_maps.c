@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 01:46:00 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:06:53 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ static void		fill_tiles_at(int x, int y, char c, t_wolf *wolf_game)
 	wolf_game->tiles[y][x].block_player = 0;
 	if (c == 'J')
 	{
-		wolf_game->player.posx = x * 10;
-		wolf_game->player.posy = y * 10;
+		wolf_game->player_spawn_x = x * 10;
+		wolf_game->player_spawn_y = y * 10;
 	}
 	else if (c == 'M')
 	{
@@ -115,10 +115,10 @@ int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 		init_tiles(wolf_game);
 		if (verify_map(fd) == 0)
 			return (0);
-		wolf_player_init(wolf_game);
 		fill_tiles(open(mapfile, O_RDONLY), wolf_game);
 	}
 	else
 		return (0);
+	wolf_player_init(wolf_game);
 	return (1);
 }

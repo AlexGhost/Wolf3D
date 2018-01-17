@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 01:59:25 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:16:46 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,18 @@ static void		draw_cube(int x, int y, int color, t_wolf *wolf_game)
 	}
 }
 
+static void		draw_tile(int i, int j, t_wolf *wolf_game)
+{
+	if (wolf_game->tiles[j][i].type == TILE_WALL)
+		draw_cube(i, j, COLOR_WALL, wolf_game);
+	else if (wolf_game->tiles[j][i].type == TILE_SPACE)
+		draw_cube(i, j, COLOR_SPACE, wolf_game);
+	else if (wolf_game->tiles[j][i].type == TILE_SAS)
+		draw_cube(i, j, COLOR_SAS, wolf_game);
+	else
+		draw_cube(i, j, COLOR_FLOOR, wolf_game);
+}
+
 int				wolf_draw_minimap(t_wolf *wolf_game)
 {
 	int i;
@@ -61,23 +73,13 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	ft_putstr("o2: ");
 	ft_putnbrl(wolf_game->player.oxygen);
 	wolf_player_loop(wolf_game);
-	if (wolf_game->draw_minimap == 1)
+	if (wolf_game->draw_minimap == 1 && (j = -1))
 	{
-		j = -1;
 		while (++j < 64)
 		{
 			i = -1;
 			while (++i < 64)
-			{
-				if (wolf_game->tiles[j][i].type == TILE_WALL)
-					draw_cube(i, j, COLOR_WALL, wolf_game);
-				else if (wolf_game->tiles[j][i].type == TILE_SPACE)
-					draw_cube(i, j, COLOR_SPACE, wolf_game);
-				else if (wolf_game->tiles[j][i].type == TILE_SAS)
-					draw_cube(i, j, COLOR_SAS, wolf_game);
-				else
-					draw_cube(i, j, COLOR_FLOOR, wolf_game);
-			}
+				draw_tile(i, j, wolf_game);
 		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 		mlx_put_image_to_window(wolf_game->smlx.mlx, \

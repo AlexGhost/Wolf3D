@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 01:58:33 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:06:34 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void			wolf_player_init(t_wolf *wolf_game)
 {
-	wolf_game->player.posx = 1.0;
-	wolf_game->player.posy = 1.0;
+	wolf_game->player.posx = wolf_game->player_spawn_x;
+	wolf_game->player.posy = wolf_game->player_spawn_y;
 	wolf_game->player.rotx = 1.0;
 	wolf_game->player.roty = 0.0;
 	wolf_game->player.rot = 90.0;
