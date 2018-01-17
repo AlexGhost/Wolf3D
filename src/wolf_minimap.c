@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:47:57 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 10:29:49 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	int i;
 	int j;
 
-	ft_putstr("\tO2: ");
-	ft_putnbr(wolf_game->player.oxygen);
-	if (wolf_game->player.oxygen > 0)
-		ft_putendl("\t\tSTATUS: ALIVE");
-	else
-		ft_putendl("\t\tSTATUS: DECEASED");
 	wolf_player_loop(wolf_game);
 	if (wolf_game->draw_minimap == 1 && (j = -1))
 	{
@@ -85,8 +79,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 				draw_tile(i, j, wolf_game);
 		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
-		mlx_put_image_to_window(wolf_game->smlx.mlx, \
-				wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
+		wolf_draw_hud(wolf_game);
 	}
 	return (0);
 }
