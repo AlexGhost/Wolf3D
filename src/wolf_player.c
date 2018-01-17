@@ -6,13 +6,13 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:06:34 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:47:06 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
 
-void			wolf_player_init(t_wolf *wolf_game)
+void			wolf_world_init(t_wolf *wolf_game)
 {
 	wolf_game->player.posx = wolf_game->player_spawn_x;
 	wolf_game->player.posy = wolf_game->player_spawn_y;
@@ -53,6 +53,32 @@ static int		check_collisions(t_wolf *wolf_game)
 	return (1);
 }
 
+static int		check_oxygen(t_wolf *wolf_game)
+{
+	int		i;
+	int		j;
+
+	j = -1;
+	while (++j < 64)
+	{
+		i = -1;
+		while (++i < 64)
+		{
+			if (wolf_game->tiles[j][i].have_atmo == 0 \
+				&& wolf_game->player.posx > (10 \
+				* wolf_game->tiles[j][i].posx - 5) \
+				&& wolf_game->player.posx < (10 \
+				* wolf_game->tiles[j][i].posx - 5) + 10 \
+				&& wolf_game->player.posy > (10 \
+				* wolf_game->tiles[j][i].posy - 5) \
+				&& wolf_game->player.posy < (10 \
+				* wolf_game->tiles[j][i].posy - 5) + 10)
+				return (0);
+		}
+	}
+	return (1);
+}
+
 static void		move_player(t_wolf *wolf_game)
 {
 	wolf_game->player.posx += wolf_game->player.is_moving \
@@ -63,9 +89,14 @@ static void		move_player(t_wolf *wolf_game)
 
 void			wolf_player_loop(t_wolf *wolf_game)
 {
-	if (wolf_game->player.is_moving != 0 && check_collisions(wolf_game) == 1)
+	if (wolf_game->player.is_moving != 0 && check_collisions(wolf_game) == 1 \
+		&& wolf_game->player.oxygen > 0)
 		move_player(wolf_game);
-	if (wolf_game->player.is_rot != 0)
+	if (check_oxygen(wolf_game) == 0 && wolf_game->player.oxygen > 0)
+		wolf_game->player.oxygen -= OZ_DEPLETE;
+	else if (check_oxygen(wolf_game) == 1 && wolf_game->player.oxygen < 100)
+		wolf_game->player.oxygen += OZ_REFILL;
+	if (wolf_game->player.is_rot != 0 && wolf_game->player.oxygen > 0)
 		wolf_game->player.rot += wolf_game->player.is_rot * PLAYER_TURN_RATE;
 	if (wolf_game->player.posx < 0)
 		wolf_game->player.posx = 0;

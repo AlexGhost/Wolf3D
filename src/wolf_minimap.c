@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:16:46 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:47:57 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 		i = -1;
 		while (++i < 4)
 			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
-				+ 364) + (((int)y + i + 3 \
-				+ 64) * WIN_WIDTH))] = COLOR_RED;
+				+ 364) + (((int)y + i + 3 + 64) * WIN_WIDTH))] = COLOR_RED;
 	}
 	j = -1;
 	while (++j < 4)
@@ -70,8 +69,12 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 	int i;
 	int j;
 
-	ft_putstr("o2: ");
-	ft_putnbrl(wolf_game->player.oxygen);
+	ft_putstr("\tO2: ");
+	ft_putnbr(wolf_game->player.oxygen);
+	if (wolf_game->player.oxygen > 0)
+		ft_putendl("\t\tSTATUS: ALIVE");
+	else
+		ft_putendl("\t\tSTATUS: DECEASED");
 	wolf_player_loop(wolf_game);
 	if (wolf_game->draw_minimap == 1 && (j = -1))
 	{

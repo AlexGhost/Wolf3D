@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:06:53 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:47:34 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ static void		init_tiles(t_wolf *wolf_game)
 		i = -1;
 		while (++i < 64)
 		{
+			wolf_game->tiles[j][i].posx = i;
+			wolf_game->tiles[j][i].posy = j;
 			wolf_game->tiles[j][i].type = TILE_FLOOR;
 			wolf_game->tiles[j][i].block_player = 0;
+			wolf_game->tiles[j][i].have_atmo = 1;
 		}
 	}
 }
@@ -62,9 +65,6 @@ static int		verify_map(int fd)
 
 static void		fill_tiles_at(int x, int y, char c, t_wolf *wolf_game)
 {
-	wolf_game->tiles[y][x].posx = x;
-	wolf_game->tiles[y][x].posy = y;
-	wolf_game->tiles[y][x].block_player = 0;
 	if (c == 'J')
 	{
 		wolf_game->player_spawn_x = x * 10;
@@ -76,7 +76,10 @@ static void		fill_tiles_at(int x, int y, char c, t_wolf *wolf_game)
 		wolf_game->tiles[y][x].block_player = 1;
 	}
 	else if (c == '*')
+	{
 		wolf_game->tiles[y][x].type = TILE_SPACE;
+		wolf_game->tiles[y][x].have_atmo = 0;
+	}
 	else if (c == 'S')
 		wolf_game->tiles[y][x].type = TILE_SAS;
 	else
@@ -119,6 +122,6 @@ int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 	}
 	else
 		return (0);
-	wolf_player_init(wolf_game);
+	wolf_world_init(wolf_game);
 	return (1);
 }

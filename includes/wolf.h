@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:04:34 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/17 02:46:45 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,12 @@
 # include "fcntl.h"
 # include "wolf_mlx.h"
 # include "wolf_button.h"
+# include "wolf_colors.h"
 
 # define PLAYER_SPEED 1.3
 # define PLAYER_TURN_RATE 3
-# define COLOR_RED 0x00FF0000
-# define COLOR_GREEN 0x0000FF00
-# define COLOR_BLUE 0x000000FF
-# define COLOR_WALL 0x00555555
-# define COLOR_FLOOR 0x00BBBBBB
-# define COLOR_SPACE 0x006378FF
-# define COLOR_SAS 0x00859AEE
+# define OZ_DEPLETE 0.3
+# define OZ_REFILL 0.5
 
 typedef enum		e_tiles_type
 {
@@ -64,6 +60,7 @@ typedef struct		s_tile
 	int				posx;
 	int				posy;
 	int				block_player;
+	int				have_atmo;
 }					t_tile;
 
 typedef struct		s_wolf
@@ -78,7 +75,7 @@ typedef struct		s_wolf
 
 void				wolf_create_window(t_wolf *wolf_game);
 void				wolf_player_loop(t_wolf *wolf_game);
-void				wolf_player_init(t_wolf *wolf_game);
+void				wolf_world_init(t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 int					wolf_exit(void);
