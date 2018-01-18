@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 10:29:49 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/18 17:58:25 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 				draw_tile(i, j, wolf_game);
 		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
-		wolf_draw_hud(wolf_game);
 	}
+	wolf_draw_hud(wolf_game);
 	return (0);
 }
