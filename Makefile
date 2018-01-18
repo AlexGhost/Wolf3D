@@ -3,7 +3,7 @@ CFLAG = -Wall -Werror -Wextra
 ##CC = gcc $(CFLAG)
 CC = gcc
 SRC = main.c wolf_window.c wolf_maps.c wolf_minimap.c wolf_input.c \
-	  wolf_player.c wolf_hud.c
+	  wolf_player.c wolf_hud.c wolf_world.c
 PSRC = $(addprefix src/,$(SRC))
 OBJ = $(SRC:.c=.o)
 POBJ = $(addprefix obj/,$(OBJ))
