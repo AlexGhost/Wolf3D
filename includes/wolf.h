@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/18 19:00:51 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/18 20:08:15 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct		s_wolf
 	double			player_spawn_x;
 	double			player_spawn_y;
 	int				draw_minimap;
+	t_xpm			xpm_skybox;
 }					t_wolf;
 
 void				wolf_create_window(t_wolf *wolf_game);

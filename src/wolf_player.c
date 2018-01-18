@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/18 19:41:44 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/18 21:36:54 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 void			wolf_world_init(t_wolf *wolf_game)
 {
-	t_xpm		img_skybox;
-
-	/*img_skybox.width = 900;
-	img_skybox.height = 675;
-	img_skybox.img = mlx_xpm_file_to_image(wolf_game->smlx.mlx, \
-		"xpm/skybox.xpm", &img_skybox.width, &img_skybox.height);
-	*/wolf_game->player.posx = wolf_game->player_spawn_x;
+	wolf_game->xpm_skybox.width = 0;
+	wolf_game->xpm_skybox.height = 0;
+	wolf_game->xpm_skybox.img = mlx_xpm_file_to_image(wolf_game->smlx.mlx, \
+		"xpm/skyboxd", &wolf_game->xpm_skybox.width, \
+		&wolf_game->xpm_skybox.height);
+	wolf_game->player.posx = wolf_game->player_spawn_x;
 	wolf_game->player.posy = wolf_game->player_spawn_y;
 	wolf_game->player.rotx = 1.0;
 	wolf_game->player.roty = 0.0;
