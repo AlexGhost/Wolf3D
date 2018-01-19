@@ -6,19 +6,15 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 03:10:09 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 05:11:03 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
+#include <stdio.h>
 
-void			wolf_world_init(t_wolf *wolf_game)
+void			wolf_player_init(t_wolf *wolf_game)
 {
-	wolf_game->xpm_skybox.width = 0;
-	wolf_game->xpm_skybox.height = 0;
-	wolf_game->xpm_skybox.img = mlx_xpm_file_to_image(wolf_game->smlx.mlx, \
-		"xpm/skyboxd", &wolf_game->xpm_skybox.width, \
-		&wolf_game->xpm_skybox.height);
 	wolf_game->player.posx = wolf_game->player_spawn_x;
 	wolf_game->player.posy = wolf_game->player_spawn_y;
 	wolf_game->player.rotx = 1.0;

@@ -20,7 +20,7 @@ $(NAME) : submake $(POBJ)
 	@echo "\033[32m\------------------------------------/ \\033[0m"
 
 submake :
-	@$(MAKE) -C minilibx_macos/
+	@$(MAKE) -C mlx/
 	@$(MAKE) -C libft/
 
 obj/%.o: src/%.c
@@ -29,7 +29,7 @@ obj/%.o: src/%.c
 	@$(CC) -o $@ -c $<
 
 clean :
-	@$(MAKE) clean -C minilibx_macos/
+	@$(MAKE) clean -C mlx/
 	@$(MAKE) fclean -C libft/
 	@rm -rf obj
 

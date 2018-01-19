@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 03:06:49 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 05:13:31 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define WOLF_H
 
 # include "../libft/libft.h"
-# include "../minilibx_macos/mlx.h"
+# include "../mlx/mlx.h"
 # include "math.h"
 # include "fcntl.h"
 # include "wolf_mlx.h"
@@ -68,7 +68,6 @@ typedef struct		s_xpm
 	void			*img;
 	int				width;
 	int				height;
-	int				*imgstr;
 }					t_xpm;
 
 typedef struct		s_wolf
@@ -84,6 +83,7 @@ typedef struct		s_wolf
 
 void				wolf_create_window(t_wolf *wolf_game);
 void				wolf_player_loop(t_wolf *wolf_game);
+void				wolf_player_init(t_wolf *wolf_game);
 void				wolf_world_init(t_wolf *wolf_game);
 void				wolf_draw_hud(t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
