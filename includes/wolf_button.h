@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 17:22:25 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/17 02:07:50 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/20 00:24:48 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define BUTTON_C 8
 # define BUTTON_M 46
 # define BUTTON_R 15
-# define BUTTON_ARROW_UP 126
-# define BUTTON_ARROW_RIGHT 124
-# define BUTTON_ARROW_DOWN 125
-# define BUTTON_ARROW_LEFT 123
+# define BUTTON_UP 126
+# define BUTTON_RIGHT 124
+# define BUTTON_DOWN 125
+# define BUTTON_LEFT 123
 # define MOUSE_LEFT 1
 # define MOUSE_RIGHT 2
 # define MOUSE_WHEEL_UP 5
