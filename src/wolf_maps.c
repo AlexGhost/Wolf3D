@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 05:13:33 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 23:53:46 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 	}
 	else
 		return (0);
+	wolf_game->draw_minimap = 1;
 	wolf_world_init(wolf_game);
 	wolf_player_init(wolf_game);
 	return (1);

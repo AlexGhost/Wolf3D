@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 05:11:03 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 23:53:49 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void			wolf_player_init(t_wolf *wolf_game)
 	wolf_game->player.is_moving = 0;
 	wolf_game->player.is_rot = 0;
 	wolf_game->player.oxygen = 100.0;
-	wolf_game->draw_minimap = 1;
 }
 
 static int		check_collisions(t_wolf *wolf_game)
