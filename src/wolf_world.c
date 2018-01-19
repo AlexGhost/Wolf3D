@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 18:32:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/18 21:37:19 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 03:14:08 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ static void			wolf_draw_skybox(t_wolf *wolf_game)
 		while (++i < WIN_WIDTH)
 			wolf_game->smlx.imgstr[i + (j * WIN_WIDTH)] = COLOR_FLOOR;
 	}
-	/*mlx_put_image_to_window(wolf_game->smlx.mlx, wolf_game->smlx.win, \
-		wolf_game->xpm_skybox.img, 0, 0);*/
+	//mlx_put_image_to_window(wolf_game->smlx.mlx, wolf_game->smlx.win, \
+		wolf_game->xpm_skybox.img, 50, 50);
 }
 
 void				wolf_draw_world(t_wolf *wolf_game)
