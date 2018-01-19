@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 06:17:25 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/20 00:48:16 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define PLAYER_SPEED 1.3
 # define PLAYER_TURN_RATE 3
-# define OZ_DEPLETE 0.2
+# define OZ_DEPLETE 0.1
 # define OZ_REFILL 0.3
 
 typedef enum		e_tiles_type
