@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 05:13:31 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/19 06:17:25 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ typedef struct		s_xpm
 	void			*img;
 	int				width;
 	int				height;
+	int				*imgstr;
+	t_img			simg;
 }					t_xpm;
 
 typedef struct		s_wolf
