@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 18:32:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/20 01:44:46 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/01/20 02:16:39 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void				wolf_world_init(t_wolf *wolf_game)
 	wolf_game->xpm_skybox.width = 0;
 	wolf_game->xpm_skybox.height = 0;
 	wolf_game->xpm_skybox.img = mlx_xpm_file_to_image(&wolf_game->smlx.mlx, \
-		"xpm/skyboxmini.xpm", &wolf_game->xpm_skybox.width, \
+		"xpm/skybox.xpm", &wolf_game->xpm_skybox.width, \
 		&wolf_game->xpm_skybox.height);
 	wolf_game->xpm_skybox.imgstr = (int*)mlx_get_data_addr(\
 		wolf_game->xpm_skybox.img, &wolf_game->xpm_skybox.simg.bpp, \
