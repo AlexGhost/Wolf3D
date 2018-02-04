@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 17:24:20 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 17:29:54 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 	}
 	r = -45;
-	while (r < 45)
+	while (r <= 45)
 	{
 		wolf_throwray(r, wolf_game);
 		r += 1;
