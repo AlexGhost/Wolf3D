@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 16:05:21 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 16:35:24 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ static void		draw_player(double x, double y, t_wolf *wolf_game)
 		while (++i < 4)
 			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
 				+ 364) + (((int)y + i + 3 + 64) * WIN_WIDTH))] = COLOR_RED;
+	}
+	j = -1;
+	while (++j < 4)
+	{
+		i = -1;
+		while (++i < 4)
+			wolf_game->smlx.imgstr[(int)(((int)x + j + 3 \
+				+ (int)(wolf_game->player.rotx * 4) + 364) \
+				+ (((int)y + i + 3 + (int)(wolf_game->player.roty * 4) \
+				+ 64) * WIN_WIDTH))] = COLOR_RED - 0x00220000;
 	}
 }
 
@@ -70,13 +80,13 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 			while (++i < 64)
 				draw_tile(i, j, wolf_game);
 		}
-		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 		r = -45;
 		while (r < 45)
 		{
 			wolf_throwray(r, wolf_game);
 			r += 5;
 		}
+		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 	}
 	wolf_draw_hud(wolf_game);
 	return (0);

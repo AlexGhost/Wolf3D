@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 16:21:50 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 16:39:04 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ static int		check_wall(double x, double y, t_wolf *wolf_game)
 		while (++i < 64)
 		{
 			if (wolf_game->tiles[j][i].block_player == 1 \
-				&& x > (10 * wolf_game->tiles[j][i].posx - 5 + 364) \
-				&& x < (10 * wolf_game->tiles[j][i].posx - 5 + 364) + 20 \
-				&& y > (10 * wolf_game->tiles[j][i].posy - 5 + 64) \
-				&& y < (10 * wolf_game->tiles[j][i].posy - 5 + 64) + 20)
+				&& x > (10 * wolf_game->tiles[j][i].posx - 2 + 364) \
+				&& x < (10 * wolf_game->tiles[j][i].posx - 2 + 364) + 15 \
+				&& y > (10 * wolf_game->tiles[j][i].posy - 2 + 64) \
+				&& y < (10 * wolf_game->tiles[j][i].posy - 2 + 64) + 15)
 				return (0);
 		}
 	}
