@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   wolf_world.c                                       :+:      :+:    :+:   */
+/*   wolf_skybox.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/18 18:32:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/20 02:16:39 by acourtin         ###   ########.fr       */
+/*   Created: 2018/02/04 14:09:50 by acourtin          #+#    #+#             */
+/*   Updated: 2018/02/04 14:09:52 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void				wolf_world_init(t_wolf *wolf_game)
 		&wolf_game->xpm_skybox.simg.s_l, &wolf_game->xpm_skybox.simg.endian);
 }
 
-static void			wolf_draw_skybox(t_wolf *wolf_game)
+void				wolf_draw_skybox(t_wolf *wolf_game)
 {
 	int		i;
 	int		j;
@@ -46,9 +46,4 @@ static void			wolf_draw_skybox(t_wolf *wolf_game)
 	i = (WIN_HEIGHT * WIN_WIDTH) / 2 - 1;
 	while (++i < WIN_HEIGHT * WIN_WIDTH)
 		wolf_game->smlx.imgstr[i] = COLOR_FLOOR;
-}
-
-void				wolf_draw_world(t_wolf *wolf_game)
-{
-	wolf_draw_skybox(wolf_game);
 }

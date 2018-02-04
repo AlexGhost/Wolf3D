@@ -2,10 +2,10 @@ NAME = wolf3d
 CFLAG = -Wall -Werror -Wextra
 DEBUGFLAGS = -fsanitize=address -g
 ##CC = gcc $(CFLAG)
-CC = gcc $(DEBUGFLAGS)
-##CC = gcc
+##CC = gcc $(DEBUGFLAGS)
+CC = gcc
 SRC = main.c wolf_window.c wolf_maps.c wolf_minimap.c wolf_input.c \
-	  wolf_player.c wolf_hud.c wolf_world.c
+	  wolf_player.c wolf_hud.c wolf_skybox.c wolf_raycast.c
 PSRC = $(addprefix src/,$(SRC))
 OBJ = $(SRC:.c=.o)
 POBJ = $(addprefix obj/,$(OBJ))

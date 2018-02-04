@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/20 01:42:21 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 14:03:56 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ void			wolf_player_loop(t_wolf *wolf_game)
 	else if (wolf_game->player.posy > 630)
 		wolf_game->player.posy = 630;
 	if (wolf_game->player.rot > 360.0)
-		wolf_game->player.rot = 10.0;
+		wolf_game->player.rot = PLAYER_TURN_RATE;
 	else if (wolf_game->player.rot < 0)
-		wolf_game->player.rot = 350.0;
+		wolf_game->player.rot = 360.0 - PLAYER_TURN_RATE;
 	wolf_game->player.rotx = sin((wolf_game->player.rot / 180) * 3.14);
 	wolf_game->player.roty = cos((wolf_game->player.rot / 180) * 3.14);
 }
