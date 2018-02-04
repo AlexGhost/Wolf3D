@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 16:35:24 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 17:24:20 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 			while (++i < 64)
 				draw_tile(i, j, wolf_game);
 		}
-		r = -45;
-		while (r < 45)
-		{
-			wolf_throwray(r, wolf_game);
-			r += 5;
-		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
+	}
+	r = -45;
+	while (r < 45)
+	{
+		wolf_throwray(r, wolf_game);
+		r += 1;
 	}
 	wolf_draw_hud(wolf_game);
 	return (0);
