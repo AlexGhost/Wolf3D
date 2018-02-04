@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:18:45 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 23:53:46 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 18:23:13 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int				wolf_loadmap(char *mapfile, t_wolf *wolf_game)
 
 	ft_putstr("Loading ");
 	ft_putstr(mapfile);
-	ft_putstr(" map...\n");
+	ft_putstr(" ...\n");
 	if ((fd = open(mapfile, O_RDONLY)) > 0)
 	{
 		init_tiles(wolf_game);
