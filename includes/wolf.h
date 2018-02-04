@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 14:10:15 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 15:25:15 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ int					wolf_exit(void);
 int					wolf_keypress_event(int keycode, t_wolf *wolf_game);
 int					wolf_keyrelease_event(int keycode, t_wolf *wolf_game);
 void				wolf_draw_skybox(t_wolf *wolf_game);
-void				wolf_throwray(t_wolf *wolf_game);
+void				wolf_throwray(double rot, t_wolf *wolf_game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 14:06:35 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/04 16:21:50 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,29 @@ static int		check_wall(double x, double y, t_wolf *wolf_game)
 		while (++i < 64)
 		{
 			if (wolf_game->tiles[j][i].block_player == 1 \
-				&& x > (10 * wolf_game->tiles[j][i].posx - 5) \
-				&& x < (10 * wolf_game->tiles[j][i].posx - 5) + 10 \
-				&& y > (10 * wolf_game->tiles[j][i].posy - 5) \
-				&& y < (10 * wolf_game->tiles[j][i].posy - 5) + 10)
+				&& x > (10 * wolf_game->tiles[j][i].posx - 5 + 364) \
+				&& x < (10 * wolf_game->tiles[j][i].posx - 5 + 364) + 20 \
+				&& y > (10 * wolf_game->tiles[j][i].posy - 5 + 64) \
+				&& y < (10 * wolf_game->tiles[j][i].posy - 5 + 64) + 20)
 				return (0);
 		}
 	}
 	return (1);
 }
 
-void			wolf_throwray(t_wolf *wolf_game)
+void			wolf_throwray(double rot, t_wolf *wolf_game)
 {
-	int i;
-	double x;
-	double y;
+	int		i;
+	double	x;
+	double	y;
 
 	i = -1;
 	x = wolf_game->player.posx + 4 + 364;
 	y = wolf_game->player.posy + 4 + 64;
-	//while (++i < 20 && check_wall(x, y, wolf_game))
-	while (++i < 200)
+	while (++i < 50 && check_wall(x, y, wolf_game) == 1)
 	{
-		x += wolf_game->player.rotx * 2;
-		y += wolf_game->player.roty * 2;
+		x += sin(((wolf_game->player.rot - rot) / 180) * 3.14) * 5;
+		y += cos(((wolf_game->player.rot - rot) / 180) * 3.14) * 5;
 		check_border(&x, &y);
 		wolf_game->smlx.imgstr[(int)x + ((int)y * WIN_WIDTH)] = 0x0000FF00;
 	}
