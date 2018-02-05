@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 18:26:07 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/05 11:58:04 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,13 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 	}
-	r = -46;
-	while (++r <= 45)
-		wolf_draw_wall(r, wolf_throwray(r, wolf_game), wolf_game);
+	r = 0;
+	while (r < 90)
+	{
+		//wolf_draw_wall(r, wolf_throwray(r, wolf_game), wolf_game);
+		wolf_throwray(r, wolf_game);
+		r += 1;
+	}
 	wolf_draw_hud(wolf_game);
 	return (0);
 }
