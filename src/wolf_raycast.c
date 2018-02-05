@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/05 11:58:17 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/05 19:50:45 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int				wolf_throwray(double rot, t_wolf *wolf_game)
 	x = wolf_game->player.posx + 4 + 364;
 	y = wolf_game->player.posy + 4 + 64;
 	count = 0;
-	rot -= 45;
-	while (++i < 100 && check_wall(x, y, wolf_game) == 1)
+	rot -= 45.0;
+	while (++i < 50 && check_wall(x, y, wolf_game) == 1)
 	{
 		check_border(&x, &y);
 		if (wolf_game->draw_minimap == 1)

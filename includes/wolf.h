@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/05 11:35:44 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/05 20:03:22 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include "wolf_button.h"
 # include "wolf_colors.h"
 
-# define PLAYER_SPEED 1.3
-# define PLAYER_TURN_RATE 3
+# define PLAYER_SPEED 6
+# define PLAYER_TURN_RATE 9
 # define OZ_DEPLETE 0.1
 # define OZ_REFILL 0.3
 
@@ -89,7 +89,7 @@ void				wolf_player_init(t_wolf *wolf_game);
 void				wolf_world_init(t_wolf *wolf_game);
 void				wolf_draw_hud(t_wolf *wolf_game);
 void				wolf_draw_skybox(t_wolf *wolf_game);
-void				wolf_draw_wall(int col, int depth, t_wolf *wolf_game);
+void				wolf_draw_wall(double col, int depth, t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 int					wolf_exit(void);
