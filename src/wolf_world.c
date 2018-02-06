@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/05 20:08:45 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/06 16:45:40 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 static int		inver(int n)
 {
-	long res;
+	int tab[31];
+	int i;
+	int j;
 
-	res = 0;
-	while (n)
+	i = 0;
+	j = 30;
+	while (i <= 30)
 	{
-		res += (res * 10) + n % 10;
-		n /= 10;
+		tab[i] = j;
+		i++;
+		j--;
 	}
-	return (res);
+	return (tab[n]);
 }
 
 void			wolf_draw_wall(double col, int depth, t_wolf *wolf_game)
@@ -31,14 +35,15 @@ void			wolf_draw_wall(double col, int depth, t_wolf *wolf_game)
 	int l;
 	int color;
 
-	color = 0x00111111 * (depth / 10);
+	depth = inver(depth);
+	color = 0x00111111 * (depth / 5);
 	h = -1;
 	l = 0;
-	while (++h < depth * 2)
+	while (++h < (depth * 5))
 	{
 		l = -1;
-		while (++l < 6)
-			wolf_game->smlx.imgstr[(int)(col * 15.5) + l + ((h + 400 - (depth * 1)) \
+		while (++l < 7)
+			wolf_game->smlx.imgstr[(int)(col * 17.5) + l + ((h + 400 - depth) \
 				* WIN_WIDTH)] = color;
 	}
 }

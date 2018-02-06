@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 19:18:04 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/05 20:02:34 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/06 16:43:58 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,25 @@ static void		draw_tile(int i, int j, t_wolf *wolf_game)
 		draw_cube(i, j, COLOR_FLOOR, wolf_game);
 }
 
+static void		begin_raycast(t_wolf *wolf_game)
+{
+	double	r;
+
+	r = 0.0;
+	while (r < 80)
+	{
+		if (wolf_game->draw_minimap == 1)
+			wolf_throwray(r, wolf_game);
+		else
+			wolf_draw_wall(r, wolf_throwray(r, wolf_game), wolf_game);
+		r += 0.35;
+	}
+}
+
 int				wolf_draw_minimap(t_wolf *wolf_game)
 {
 	int		i;
 	int		j;
-	double	r;
 
 	wolf_player_loop(wolf_game);
 	wolf_draw_skybox(wolf_game);
@@ -82,13 +96,7 @@ int				wolf_draw_minimap(t_wolf *wolf_game)
 		}
 		draw_player(wolf_game->player.posx, wolf_game->player.posy, wolf_game);
 	}
-	r = 0.0;
-	while (r < 90)
-	{
-		wolf_draw_wall(r, wolf_throwray(r, wolf_game), wolf_game);
-		//wolf_throwray(r, wolf_game);
-		r += 0.35;
-	}
+	begin_raycast(wolf_game);
 	wolf_draw_hud(wolf_game);
 	return (0);
 }

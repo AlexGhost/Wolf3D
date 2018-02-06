@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/05 19:50:45 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/06 16:40:00 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void		check_border(double *x, double *y)
 
 static int		check_wall(double x, double y, t_wolf *wolf_game)
 {
-	int j;
 	int i;
+	int j;
 
 	j = -1;
 	while (++j < 64)
@@ -51,21 +51,19 @@ int				wolf_throwray(double rot, t_wolf *wolf_game)
 	int		i;
 	double	x;
 	double	y;
-	int		count;
 
-	i = -1;
+	i = 0;
 	x = wolf_game->player.posx + 4 + 364;
 	y = wolf_game->player.posy + 4 + 64;
-	count = 0;
-	rot -= 45.0;
-	while (++i < 50 && check_wall(x, y, wolf_game) == 1)
+	rot -= 40.0;
+	while (i < 30 && check_wall(x, y, wolf_game) == 1)
 	{
 		check_border(&x, &y);
 		if (wolf_game->draw_minimap == 1)
 			wolf_game->smlx.imgstr[(int)x + ((int)y * WIN_WIDTH)] = 0x0000FF00;
 		x += sin(((wolf_game->player.rot - rot) / 180) * 3.14) * 2;
 		y += cos(((wolf_game->player.rot - rot) / 180) * 3.14) * 2;
-		count++;
+		i += 1;
 	}
-	return (count);
+	return (i);
 }
