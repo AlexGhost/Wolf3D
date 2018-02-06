@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/06 16:45:40 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/06 17:04:23 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			wolf_draw_wall(double col, int depth, t_wolf *wolf_game)
 	color = 0x00111111 * (depth / 5);
 	h = -1;
 	l = 0;
-	while (++h < (depth * 5))
+	while (++h < (depth * 5) * cos((col - 40) / 180))
 	{
 		l = -1;
 		while (++l < 7)
