@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/06 16:33:24 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/07 16:08:54 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct		s_wolf
 	t_mlx			smlx;
 	t_player		player;
 	t_tile			tiles[64][64];
+	int				collision[641][641];
 	double			player_spawn_x;
 	double			player_spawn_y;
 	int				draw_minimap;
