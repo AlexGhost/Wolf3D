@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/04 14:03:56 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/07 16:44:40 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,8 @@ static int		check_collisions(t_wolf *wolf_game)
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.rotx * 10);
 	p_ny = wolf_game->player.posy \
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.roty * 10);
-	j = -1;
-	while (++j < 64)
-	{
-		i = -1;
-		while (++i < 64)
-		{
-			if (wolf_game->tiles[j][i].block_player == 1 \
-				&& p_nx > (10 * wolf_game->tiles[j][i].posx - 5) \
-				&& p_nx < (10 * wolf_game->tiles[j][i].posx - 5) + 10 \
-				&& p_ny > (10 * wolf_game->tiles[j][i].posy - 5) \
-				&& p_ny < (10 * wolf_game->tiles[j][i].posy - 5) + 10)
-				return (0);
-		}
-	}
+	if (wolf_game->collision[(int)(p_ny + 2.5)][(int)(p_nx + 5)] == 1)
+		return (0);
 	return (1);
 }
 
