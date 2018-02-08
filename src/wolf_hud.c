@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:03:59 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/19 05:08:07 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/08 16:46:48 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ static void			draw_helmet(t_wolf *wolf_game)
 
 void				wolf_draw_hud(t_wolf *wolf_game)
 {
+	char *str_oxy;
+
+	str_oxy = ft_itoa(wolf_game->player.oxygen);
 	draw_helmet(wolf_game);
 	mlx_put_image_to_window(wolf_game->smlx.mlx, \
 			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
@@ -36,7 +39,7 @@ void				wolf_draw_hud(t_wolf *wolf_game)
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 50, 750, \
 		COLOR_FLOOR, "O2 [   ]");
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 90, 750, \
-		COLOR_FLOOR, ft_itoa(wolf_game->player.oxygen));
+		COLOR_FLOOR, str_oxy);
 	if (wolf_game->player.oxygen > 50)
 		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 150, 750, \
 			0x0057A44A, "ALIVE");
@@ -49,4 +52,5 @@ void				wolf_draw_hud(t_wolf *wolf_game)
 	else
 		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 150, 750, \
 			0x00A90000, "DECEASED");
+	ft_strdel(&str_oxy);
 }
