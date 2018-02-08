@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/08 16:48:13 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/08 16:59:41 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ void			wolf_world_init(t_wolf *wolf_game)
 	{
 		i = -1;
 		while (++i < 640)
-			wolf_game->collision[j][i] = \
+		{
+			wolf_game->hitbox[j][i].collision = \
 				wolf_game->tiles[(j / 10)][(i / 10)].block_player;
+			wolf_game->hitbox[j][i].oxygen = \
+				wolf_game->tiles[(j / 10)][(i / 10)].have_atmo;
+		}
 	}
 }
 

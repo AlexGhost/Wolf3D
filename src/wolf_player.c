@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/07 16:44:40 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/08 17:06:27 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,20 @@ static int		check_collisions(t_wolf *wolf_game)
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.rotx * 10);
 	p_ny = wolf_game->player.posy \
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.roty * 10);
-	if (wolf_game->collision[(int)(p_ny + 2.5)][(int)(p_nx + 5)] == 1)
+	if (wolf_game->hitbox[(int)(p_ny + 2.5)][(int)(p_nx + 5)].collision == 1)
 		return (0);
 	return (1);
 }
 
 static int		check_oxygen(t_wolf *wolf_game)
 {
-	int		i;
-	int		j;
+	int x;
+	int y;
 
-	j = -1;
-	while (++j < 64)
-	{
-		i = -1;
-		while (++i < 64)
-		{
-			if (wolf_game->tiles[j][i].have_atmo == 0 \
-				&& wolf_game->player.posx > (10 \
-				* wolf_game->tiles[j][i].posx - 5) \
-				&& wolf_game->player.posx < (10 \
-				* wolf_game->tiles[j][i].posx - 5) + 10 \
-				&& wolf_game->player.posy > (10 \
-				* wolf_game->tiles[j][i].posy - 5) \
-				&& wolf_game->player.posy < (10 \
-				* wolf_game->tiles[j][i].posy - 5) + 10)
-				return (0);
-		}
-	}
+	x = wolf_game->player.posx;
+	y = wolf_game->player.posy;
+	if (wolf_game->hitbox[(int)(y + 2.5)][(int)(x + 5)].oxygen == 0)
+		return (0);
 	return (1);
 }
 

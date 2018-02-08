@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/07 16:43:42 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/08 16:57:58 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,18 @@ typedef struct		s_xpm
 	t_img			simg;
 }					t_xpm;
 
+typedef struct		s_hitbox
+{
+	int				collision;
+	int				oxygen;
+}					t_hitbox;
+
 typedef struct		s_wolf
 {
 	t_mlx			smlx;
 	t_player		player;
 	t_tile			tiles[64][64];
-	int				collision[641][641];
+	t_hitbox		hitbox[641][641];
 	double			player_spawn_x;
 	double			player_spawn_y;
 	int				draw_minimap;

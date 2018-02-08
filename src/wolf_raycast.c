@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/07 18:14:58 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/08 16:58:24 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void		check_border(double *x, double *y)
 
 static int		check_wall(double x, double y, t_wolf *wolf_game)
 {
-	if (wolf_game->collision[(int)y - 65][(int)x + 277] == 1)
+	if (wolf_game->hitbox[(int)y - 65][(int)x + 277].collision == 1)
 		return (0);
 	return (1);
 }
