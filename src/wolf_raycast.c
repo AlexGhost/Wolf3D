@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 13:07:01 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/08 16:58:24 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/09 19:30:34 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int				wolf_throwray(double rot, t_wolf *wolf_game)
 		check_border(&x, &y);
 		if (wolf_game->draw_minimap == 1)
 			wolf_game->smlx.imgstr[(int)x + ((int)y * WIN_WIDTH)] = 0x0000FF00;
-		x += sin(((wolf_game->player.rot - rot) / 180) * 3.14) * 2;
-		y += cos(((wolf_game->player.rot - rot) / 180) * 3.14) * 2;
+		x += sin(((wolf_game->player.rot - rot) / 180) * M_PI) * 2;
+		y += cos(((wolf_game->player.rot - rot) / 180) * M_PI) * 2;
 		i++;
 	}
 	return (i);
