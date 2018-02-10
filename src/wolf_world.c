@@ -6,25 +6,30 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/10 17:55:14 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/10 19:04:38 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
+
+static void		load_xpm(t_wolf *wolf_game, t_xpm *xpm, char *xpm_name)
+{
+	xpm->width = 0;
+	xpm->height = 0;
+	xpm->img = mlx_xpm_file_to_image(&wolf_game->smlx.mlx, \
+		xpm_name, &xpm->width, &xpm->height);
+	xpm->imgstr = (int*)mlx_get_data_addr(\
+		xpm->img, &xpm->simg.bpp, &xpm->simg.s_l, &xpm->simg.endian);
+}
 
 void			wolf_world_init(t_wolf *wolf_game)
 {
 	int i;
 	int j;
 
-	wolf_game->xpm_skybox.width = 0;
-	wolf_game->xpm_skybox.height = 0;
-	wolf_game->xpm_skybox.img = mlx_xpm_file_to_image(&wolf_game->smlx.mlx, \
-		"xpm/skybox.xpm", &wolf_game->xpm_skybox.width, \
-		&wolf_game->xpm_skybox.height);
-	wolf_game->xpm_skybox.imgstr = (int*)mlx_get_data_addr(\
-		wolf_game->xpm_skybox.img, &wolf_game->xpm_skybox.simg.bpp, \
-		&wolf_game->xpm_skybox.simg.s_l, &wolf_game->xpm_skybox.simg.endian);
+	load_xpm(wolf_game, &wolf_game->xpm_skybox, "./xpm/skybox.xpm");
+	load_xpm(wolf_game, &wolf_game->xpm_gun_idle, "./xpm/gun_idle.xpm");
+	load_xpm(wolf_game, &wolf_game->xpm_gun_fire, "./xpm/gun_fire.xpm");
 	j = -1;
 	while (++j < 640)
 	{

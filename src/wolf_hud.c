@@ -6,11 +6,23 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:03:59 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/08 16:46:48 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/10 19:27:12 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/wolf.h"
+
+static void			draw_gun(t_wolf *wolf_game)
+{
+	int i;
+
+	i = -1;
+	while (++i < (WIN_WIDTH * WIN_HEIGHT))
+	{
+		if (wolf_game->xpm_gun_idle.imgstr[i] != 0x00FFFFFF)
+			wolf_game->smlx.imgstr[i] = wolf_game->xpm_gun_idle.imgstr[i];
+	}
+}
 
 static void			draw_helmet(t_wolf *wolf_game)
 {
@@ -24,6 +36,8 @@ static void			draw_helmet(t_wolf *wolf_game)
 		while (++i < 240)
 			wolf_game->smlx.imgstr[i + (j * WIN_WIDTH)] = COLOR_WALL;
 	}
+	if (!(wolf_game->draw_minimap == 1))
+		draw_gun(wolf_game);
 }
 
 void				wolf_draw_hud(t_wolf *wolf_game)
