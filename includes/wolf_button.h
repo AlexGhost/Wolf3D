@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 17:22:25 by acourtin          #+#    #+#             */
-/*   Updated: 2018/01/20 00:24:48 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/10 19:30:18 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define WOLF_BUTTON_H
 
 # define BUTTON_ESCAPE 53
+# define BUTTON_SPACE 49
 # define BUTTON_W 13
 # define BUTTON_D 2
 # define BUTTON_S 1

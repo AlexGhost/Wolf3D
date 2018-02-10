@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/10 19:04:14 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/10 19:39:00 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct		s_player
 	float			oxygen;
 	int				is_moving;
 	int				is_rot;
+	int				is_firing;
 }					t_player;
 
 typedef struct		s_tile
@@ -87,6 +88,7 @@ typedef struct		s_wolf
 	double			player_spawn_x;
 	double			player_spawn_y;
 	int				draw_minimap;
+	int				draw_wep;
 	t_xpm			xpm_skybox;
 	t_xpm			xpm_gun_idle;
 	t_xpm			xpm_gun_fire;
@@ -99,6 +101,7 @@ void				wolf_world_init(t_wolf *wolf_game);
 void				wolf_draw_hud(t_wolf *wolf_game);
 void				wolf_draw_skybox(t_wolf *wolf_game);
 void				wolf_draw_wall(double col, int depth, t_wolf *wolf_game);
+void				wolf_firegun(t_wolf *wolf_game);
 int					wolf_loadmap(char *mapfile, t_wolf *wolf_game);
 int					wolf_draw_minimap(t_wolf *wolf_game);
 int					wolf_exit(void);
