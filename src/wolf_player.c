@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/11 19:49:35 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/11 21:03:37 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void			wolf_player_init(t_wolf *wolf_game)
 	wolf_game->player.oxygen = 100.0;
 	wolf_game->player.is_firing = 0;
 	wolf_game->player.fire_timer = GUN_FIRERATE;
+	wolf_game->player.head_bob = 0.0;
+	wolf_game->player.head_trmble = 0;
 }
 
 static int		check_collisions(t_wolf *wolf_game)
@@ -57,10 +59,17 @@ static int		check_oxygen(t_wolf *wolf_game)
 
 static void		move_player(t_wolf *wolf_game)
 {
-	wolf_game->player.posx += wolf_game->player.is_moving \
-		* PLAYER_SPEED * wolf_game->player.rotx;
-	wolf_game->player.posy += wolf_game->player.is_moving \
-		* PLAYER_SPEED * wolf_game->player.roty;
+	double movex;
+	double movey;
+
+	movex = wolf_game->player.is_moving * PLAYER_SPEED * wolf_game->player.rotx;
+	movey = wolf_game->player.is_moving * PLAYER_SPEED * wolf_game->player.roty;
+	wolf_game->player.posx += movex;
+	wolf_game->player.posy += movey;
+	wolf_game->player.head_trmble += abs(wolf_game->player.is_moving);
+	if (wolf_game->player.head_trmble < 0)
+		wolf_game->player.head_trmble = 0;
+	wolf_game->player.head_bob = (cos(wolf_game->player.head_trmble)) * 10;
 }
 
 void			wolf_player_loop(t_wolf *wolf_game)

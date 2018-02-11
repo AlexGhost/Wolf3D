@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/13 17:17:40 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/11 19:58:12 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/11 21:02:44 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct		s_player
 	double			rot;
 	float			oxygen;
 	float			fire_timer;
+	float			head_bob;
+	int				head_trmble;
 	int				is_moving;
 	int				is_rot;
 	int				is_firing;

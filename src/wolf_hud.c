@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:03:59 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/11 20:20:26 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/11 21:04:54 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ static void			draw_gun(t_wolf *wolf_game)
 		if (wolf_game->player.is_firing == 0)
 		{
 			if (wolf_game->xpm_gun_idle.imgstr[i] != 0x0000FFFF)
-				wolf_game->smlx.imgstr[i] = wolf_game->xpm_gun_idle.imgstr[i];
+				wolf_game->smlx.imgstr[i + (int)wolf_game->player.head_bob] = \
+					wolf_game->xpm_gun_idle.imgstr[i];
 		}
 		else
 		{
 			if (wolf_game->xpm_gun_fire.imgstr[i] != 0x0000FFFF)
-				wolf_game->smlx.imgstr[i] = wolf_game->xpm_gun_fire.imgstr[i];
+				wolf_game->smlx.imgstr[i + (int)wolf_game->player.head_bob] = \
+					wolf_game->xpm_gun_fire.imgstr[i];
 		}
 	}
 }
