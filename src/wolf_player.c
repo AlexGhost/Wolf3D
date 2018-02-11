@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/10 19:31:02 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/11 19:49:35 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void			wolf_player_init(t_wolf *wolf_game)
 	wolf_game->player.is_rot = 0;
 	wolf_game->player.oxygen = 100.0;
 	wolf_game->player.is_firing = 0;
+	wolf_game->player.fire_timer = GUN_FIRERATE;
 }
 
 static int		check_collisions(t_wolf *wolf_game)

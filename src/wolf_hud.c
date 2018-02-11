@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:03:59 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/10 19:45:41 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/11 20:00:29 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,23 @@ static void			draw_helmet(t_wolf *wolf_game)
 		while (++i < 240)
 			wolf_game->smlx.imgstr[i + (j * WIN_WIDTH)] = COLOR_WALL;
 	}
-	if (!(wolf_game->draw_minimap == 1) && wolf_game->draw_wep == 1)
+	if (!(wolf_game->draw_minimap == 1) && wolf_game->draw_wep == 1 \
+		&& wolf_game->player.oxygen > 0.0)
 		draw_gun(wolf_game);
+	wolf_firegun(wolf_game);
 }
 
 void				wolf_firegun(t_wolf *wolf_game)
 {
-	if (wolf_game->player.is_firing == 0)
-		wolf_game->player.is_firing = 1;
-	else
+	if (wolf_game->player.fire_timer <= 0.0)
+	{
+		wolf_game->player.fire_timer = GUN_FIRERATE;
 		wolf_game->player.is_firing = 0;
+	}
+	else if (wolf_game->player.is_firing == 1)
+	{
+		wolf_game->player.fire_timer -= 0.1;
+	}
 }
 
 void				wolf_draw_hud(t_wolf *wolf_game)
