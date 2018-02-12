@@ -18,7 +18,7 @@ static void		load_xpm(t_wolf *wolf_game, t_xpm *xpm, char *xpm_name)
 	xpm->height = 0;
 	xpm->img = mlx_xpm_file_to_image(&wolf_game->smlx.mlx, \
 		xpm_name, &xpm->width, &xpm->height);
-	xpm->imgstr = (int*)mlx_get_data_addr(\
+	xpm->imgstr = (int*)mlx_get_data_addr( \
 		xpm->img, &xpm->simg.bpp, &xpm->simg.s_l, &xpm->simg.endian);
 }
 

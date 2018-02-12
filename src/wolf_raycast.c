@@ -26,7 +26,11 @@ static void		check_border(double *x, double *y)
 
 static int		check_wall(double x, double y, t_wolf *wolf_game)
 {
-	if (wolf_game->hitbox[(int)y - 65][(int)x + 277].collision == 1)
+	if (wolf_game->hitbox[(int)y - 65][(int)x + 277].collision == 1
+		|| wolf_game->hitbox[(int)y - 64][(int)x + 277].collision == 1
+		|| wolf_game->hitbox[(int)y - 66][(int)x + 277].collision == 1
+		|| wolf_game->hitbox[(int)y - 65][(int)x + 276].collision == 1
+		|| wolf_game->hitbox[(int)y - 65][(int)x + 278].collision == 1)
 		return (0);
 	return (1);
 }
