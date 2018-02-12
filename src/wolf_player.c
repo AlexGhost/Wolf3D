@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 16:23:12 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/12 20:34:12 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/12 21:41:29 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ static int		check_collisions(t_wolf *wolf_game)
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.rotx * 10);
 	p_ny = wolf_game->player.posy \
 		+ (int)(wolf_game->player.is_moving * wolf_game->player.roty * 10);
-	if (wolf_game->hitbox[(int)(p_ny + 4)][(int)(p_nx + 5)].collision == 1 \
-	|| wolf_game->hitbox[(int)(p_ny + 3)][(int)(p_nx + 5)].collision == 1 \
-	|| wolf_game->hitbox[(int)(p_ny + 5)][(int)(p_nx + 5)].collision == 1 \
-	|| wolf_game->hitbox[(int)(p_ny + 4)][(int)(p_nx + 4)].collision == 1 \
-	|| wolf_game->hitbox[(int)(p_ny + 4)][(int)(p_nx + 6)].collision == 1)
+	if (wolf_game->hitbox[(int)(p_ny + 3.5)][(int)(p_nx + 4.5)].collision == 1 \
+	|| wolf_game->hitbox[(int)(p_ny + 1.5)][(int)(p_nx + 4.5)].collision == 1 \
+	|| wolf_game->hitbox[(int)(p_ny + 5.5)][(int)(p_nx + 4.5)].collision == 1 \
+	|| wolf_game->hitbox[(int)(p_ny + 3.5)][(int)(p_nx + 1.5)].collision == 1 \
+	|| wolf_game->hitbox[(int)(p_ny + 3.5)][(int)(p_nx + 6.5)].collision == 1)
 		return (0);
 	return (1);
 }
