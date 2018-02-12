@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 17:33:21 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/10 19:04:38 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/12 20:23:36 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void		load_xpm(t_wolf *wolf_game, t_xpm *xpm, char *xpm_name)
 	xpm->height = 0;
 	xpm->img = mlx_xpm_file_to_image(&wolf_game->smlx.mlx, \
 		xpm_name, &xpm->width, &xpm->height);
-	xpm->imgstr = (int*)mlx_get_data_addr( \
+	xpm->imgstr = (int*)mlx_get_data_addr(\
 		xpm->img, &xpm->simg.bpp, &xpm->simg.s_l, &xpm->simg.endian);
 }
 

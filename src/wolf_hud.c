@@ -6,7 +6,7 @@
 /*   By: acourtin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:03:59 by acourtin          #+#    #+#             */
-/*   Updated: 2018/02/11 21:04:54 by acourtin         ###   ########.fr       */
+/*   Updated: 2018/02/12 21:02:42 by acourtin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,33 @@ void				wolf_firegun(t_wolf *wolf_game)
 	}
 }
 
+static void			draw_ammocount(t_wolf *wolf_game)
+{
+	char *str_ammo;
+
+	mlx_put_image_to_window(wolf_game->smlx.mlx, \
+			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
+	str_ammo = ft_itoa(wolf_game->player.ammo);
+	if (!(wolf_game->draw_minimap == 1) && wolf_game->draw_wep == 1 \
+		&& wolf_game->player.oxygen > 0.0)
+	{
+		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 890 + 10 \
+			* wolf_game->player.is_firing + wolf_game->player.head_bob, \
+			550 + 10 * wolf_game->player.is_firing, 0x00FFFFFF, "AMMO");
+		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 900 + 10 \
+			* wolf_game->player.is_firing + wolf_game->player.head_bob, \
+			565 + 10 * wolf_game->player.is_firing, 0x00FFFFFF, str_ammo);
+	}
+	ft_strdel(&str_ammo);
+}
+
 void				wolf_draw_hud(t_wolf *wolf_game)
 {
 	char *str_oxy;
 
 	str_oxy = ft_itoa(wolf_game->player.oxygen);
 	draw_helmet(wolf_game);
-	mlx_put_image_to_window(wolf_game->smlx.mlx, \
-			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
-	if (!(wolf_game->draw_minimap == 1) && wolf_game->draw_wep == 1 \
-		&& wolf_game->player.oxygen > 0.0)
-		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 890 \
-			+ wolf_game->player.head_bob, 550, 0x00FFFFFF, "AMMO");
+	draw_ammocount(wolf_game);
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 50, 735, \
 		COLOR_FLOOR, "STATUS");
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 50, 750, \
