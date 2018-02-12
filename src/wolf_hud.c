@@ -37,6 +37,7 @@ static void			draw_gun(t_wolf *wolf_game)
 static void			draw_helmet(t_wolf *wolf_game)
 {
 	int i;
+	int k;
 	int j;
 
 	j = 727;
@@ -73,6 +74,10 @@ void				wolf_draw_hud(t_wolf *wolf_game)
 	draw_helmet(wolf_game);
 	mlx_put_image_to_window(wolf_game->smlx.mlx, \
 			wolf_game->smlx.win, wolf_game->smlx.img, 0, 0);
+	if (!(wolf_game->draw_minimap == 1) && wolf_game->draw_wep == 1 \
+		&& wolf_game->player.oxygen > 0.0)
+		mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 890 \
+			+ wolf_game->player.head_bob, 550, 0x00FFFFFF, "AMMO");
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 50, 735, \
 		COLOR_FLOOR, "STATUS");
 	mlx_string_put(wolf_game->smlx.mlx, wolf_game->smlx.win, 50, 750, \
